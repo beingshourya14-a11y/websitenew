@@ -1,19 +1,23 @@
-VERCEL DEPLOY (Comptech website)
-================================
+VERCEL DEPLOY — agar error aaye:
+"Couldn't find any pages or app directory"
 
-1. GitHub pe repo me sirf "comptech-website" folder use kar rahe ho to:
-   - Vercel Dashboard > Add New Project > Import repo
-   - "Root Directory" > Edit > folder select karo: comptech-website
-   - Deploy
+=== FIX 1 (sabse common) ===
+Vercel Dashboard → Project → Settings → General → "Root Directory"
+→ Edit → "comptech-website" select karo → Save → Redeploy
 
-2. Poore "new project" folder ko import kar rahe ho (comptech-website andar hai):
-   - Root Directory = comptech-website (zaroori)
+(Iska matlab: GitHub repo ka root "new project" hai, lekin Next.js app andar
+"comptech-website" folder me hai.)
 
-3. Build settings (auto):
-   - Framework: Next.js
-   - Build: npm run build
-   - Output: default (Vercel handles)
+=== FIX 2 ===
+Repo root pe "vercel.json" hai jo automatically yeh chalata hai:
+  cd comptech-website && npm install
+  cd comptech-website && npm run build
+Agar tumne POORA "new project" folder GitHub pe push kiya hai, yeh build sahi
+folder se chalega.
 
-4. Node version: .nvmrc (22) ya package.json "engines" >= 20.9
+=== FIX 3 ===
+Agar GitHub repo sirf "comptech-website" files ka hai (root me package.json + src/):
+→ Root Directory KHALI rakho (repo root = app)
+→ "src/app" folder Zaroor push ho — local: git add src && git commit && git push
 
-5. Env vars: is project ke liye .env jaroori nahi.
+Prebuild script agar fail kare to message me likhega: src/app missing

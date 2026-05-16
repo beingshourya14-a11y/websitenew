@@ -1,3 +1,5 @@
 {
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "installCommand": "cd comptech-website && npm install",
+  "buildCommand": "cd comptech-website && npm run build"
 }
