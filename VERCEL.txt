@@ -1,0 +1,19 @@
+VERCEL DEPLOY (Comptech website)
+================================
+
+1. GitHub pe repo me sirf "comptech-website" folder use kar rahe ho to:
+   - Vercel Dashboard > Add New Project > Import repo
+   - "Root Directory" > Edit > folder select karo: comptech-website
+   - Deploy
+
+2. Poore "new project" folder ko import kar rahe ho (comptech-website andar hai):
+   - Root Directory = comptech-website (zaroori)
+
+3. Build settings (auto):
+   - Framework: Next.js
+   - Build: npm run build
+   - Output: default (Vercel handles)
+
+4. Node version: .nvmrc (22) ya package.json "engines" >= 20.9
+
+5. Env vars: is project ke liye .env jaroori nahi.
